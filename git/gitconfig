@@ -1,0 +1,31 @@
+[user]
+        name = kraem
+        email = EMAIL
+        signingkey = 1028595C086444CB
+
+[core]
+        autocrlf = false
+        excludesfile = /home/kraem/.gitignore_global
+
+[gpg]
+        program = gpg
+
+[commit]
+        gpgsign = true
+
+[pull]
+	ff = only
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+
+[alias]
+    st = status
+    ci = commit
+    co = checkout
+    br = branch
+    di = diff
+    dc = diff --cached
+
+[merge]
+    tool = vimdiff
