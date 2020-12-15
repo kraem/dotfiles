@@ -1,0 +1,118 @@
+########################## BSPWM
+
+# $TERMINAL needs to be set in system wide profile
+super + Return
+        alacritty
+
+super + shift + Return
+        #tdrop -a -w -4 -y 30 -h 30% -s dropdown alacritty
+
+super + {h,j,k,l}
+        bspc node --focus {west,south,north,east}
+
+super + shift + {h,j,k,l}
+        bspc node --swap {west,south,north,east}
+
+#super + shift + {h,j,k,l}
+#	$HOME/bin/bspwm/bspwm_smart_move {west,south,north,east}
+
+
+super + n ; super + r
+	bspc node 'any.leaf.!window.local' -k
+
+super + shift + q
+        bspc node --close
+
+super + {_,shift + } f
+        bspc {desktop --layout next,node -t '~'fullscreen}
+
+super + s
+        $HOME/bin/bspwm/bspwm_toggle_spiral_scheme
+
+super + shift + s
+        maim -s | xclip -selection clipboard -t image/png
+
+super + b ; {e,r}
+        bspc {quit,wm -r}
+
+super + {_,shift + }{1-9,0}
+        bspc {desktop -f,node -d} '^{1-9,10}'
+
+super + ctrl + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+super + r : {h,l}
+        INC={-10,+10}; bspc node @east -r $INC || bspc node @west -r $INC
+
+super + r : {j,k}
+        INC={+10,-10}; bspc node @north -r $INC || bspc node @south -r $INC
+
+super + {_,shift + } a
+        bspc node -f {@first,@parent}
+
+super + shift + space
+        $HOME/bin/bspwm/bspwm_toggle_floating
+
+#super + {_,shift + }r
+#	bspc node @/ --rotate {90,-90}
+super + shift + r
+	bspc node @/ --rotate 90
+
+########################## Multimedia
+
+XF86KbdBrightnessDown
+        brightnessctl --device='smc::kbd_backlight' set 1%- &>/dev/null
+
+XF86KbdBrightnessUp
+        brightnessctl --device='smc::kbd_backlight' set +1% &>/dev/null
+
+XF86MonBrightnessUp
+        brightnessctl set +1% &>/dev/null
+
+XF86MonBrightnessDown
+        brightnessctl set 1%- &>/dev/null
+
+XF86AudioRaiseVolume
+        amixer set Master 5%+ &>/dev/null
+
+XF86AudioLowerVolume
+        amixer set Master 5%- &>/dev/null
+
+XF86AudioMute
+        amixer set Master toggle
+
+super + m
+        amixer set Capture toggle
+
+########################## Applications
+
+super + x
+        xdotool mousemove 10000 0
+
+super + z
+        xautolock -locknow
+
+super + d
+        rofi -show combi
+        #$HOME/bin/fzf-menu/fzflauncher
+
+super + p
+        gopass ls --flat | rofi -dmenu | xargs --no-run-if-empty gopass show -o | xsel -b
+        #$HOME/bin/fzf-menu/fzfgopass
+        # Don't forget that this failed due to xsel alias not being available here so `-b` has to be set explicitly
+
+super + e
+        $HOME/bin/fzf-menu/emoji-picker
+
+super + u
+        chromium-browser \
+        &>/dev/null
+
+super + shift + u
+        firefox &>/dev/null
+
+super + y
+        ~/bin/mpv/mpv-from-clipboard.sh
+
+super + o
+        Thunar &>/dev/null
