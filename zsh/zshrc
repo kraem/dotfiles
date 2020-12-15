@@ -1,0 +1,32 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block, everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+source ~/src/github.com/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+#[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+source ~/dotfiles/zsh/p10k.zsh
+
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/kraem/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+source ~/dotfiles/zsh/history.zsh
+source ~/dotfiles/zsh/env.zsh
+source ~/dotfiles/zsh/nix.zsh
+source ~/dotfiles/zsh/vi-bindings.zsh
+source ~/dotfiles/zsh/path.zsh
+source ~/dotfiles/zsh/nnn.zsh
+source ~/dotfiles/zsh/fzf.zsh
+source ~/dotfiles/zsh/gopass.zsh
+source ~/dotfiles/zsh/direnv.zsh
+source ~/dotfiles/zsh/zfs.zsh
+source ~/dotfiles/zsh/alias.zsh
