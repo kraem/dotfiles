@@ -1,0 +1,9 @@
+{
+    "name": "com.justwatch.gopass",
+    "description": "Gopass wrapper to search and return passwords",
+    "path": "/home/kraem/.config/gopass/gopass_wrapper.sh",
+    "type": "stdio",
+    "allowed_origins": [
+        "chrome-extension://kkhfnlkhiapbiehimabddjbimfaijdhk/"
+    ]
+}
