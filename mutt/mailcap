@@ -1,0 +1,8 @@
+text/html; /run/current-system/sw/bin/chromium-browser %s &>/dev/null & sleep 1; test=test -n "$DISPLAY"; description=HTML Text; nametemplate=%s.html; needsterminal
+text/html; /run/current-system/sw/bin/w3m -I %{charset} -T text/html; copiousoutput;
+application/pdf; /run/current-system/sw/bin/zathura %s
+image/*; /run/current-system/sw/bin/feh %s; copiousoutput;
+audio/*; /run/current-system/sw/bin/mpv %s; copiousoutput
+image/gif; /run/current-system/sw/bin/feh -a %s; copiousoutput
+image/*; /run/current-system/sw/bin/feh %s; copiousoutput
+video/*; mpv %s; copiousoutput
