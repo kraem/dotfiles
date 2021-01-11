@@ -102,7 +102,7 @@ super + p
         # Don't forget that this failed due to xsel alias not being available here so `-b` has to be set explicitly
 
 super + e
-        $HOME/bin/fzf-menu/emoji-picker
+        rofi -show emoji
 
 super + u
         chromium-browser \
