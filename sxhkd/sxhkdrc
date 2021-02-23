@@ -32,7 +32,7 @@ super + s
 super + shift + s
         maim -s | xclip -selection clipboard -t image/png
 
-super + b ; {e,r}
+super + w ; {e,r}
         bspc {quit,wm -r}
 
 super + {_,shift + }{1-9,0}
@@ -116,3 +116,9 @@ super + y
 
 super + o
         Thunar &>/dev/null
+
+super + t
+        echo $(date +"%Y-%m-%d %H:%M:%S") | while read time; do notify-send -u low "$time";done
+
+super + b
+        notify-send -u low "BAT0 $(cat /sys/class/power_supply/BAT0/capacity)%"
