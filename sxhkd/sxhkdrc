@@ -122,3 +122,6 @@ super + t
 
 super + b
         notify-send -u low "BAT0 $(cat /sys/class/power_supply/BAT0/capacity)%"
+
+super + c
+        dunstctl close-all
