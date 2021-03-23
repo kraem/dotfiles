@@ -87,7 +87,7 @@ super + m
 ########################## Applications
 
 super + x
-        xdotool mousemove 10000 0
+        xdotool mousemove 0 0
 
 super + z
         xautolock -locknow
