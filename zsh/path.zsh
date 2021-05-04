@@ -1,5 +1,4 @@
-export PATH=~/bin/fzf-menu/:$PATH
-export PATH=~/bin/ssh/:$PATH
-export PATH=~/bin/markdown/:$PATH
-export PATH=~/bin/latex/:$PATH
-export PATH=~/bin/mutt/:$PATH
+if command -v go &> /dev/null
+then
+  export PATH=$PATH:$(go env GOPATH)/bin
+fi
